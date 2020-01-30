@@ -1,0 +1,26 @@
+h2{
+    font-family: "Segoe UI";
+    font-style: italic;
+}
+
+.typography{
+    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+    background-color: #4e4a4a;
+    color: white;
+}
+
+.heading{
+    text-align: center;
+    font-family: "Lato", "proxima-nova", "Helvetica Neue", Arial, sans-serif;
+    font-weight: bold;
+}
+
+.button{
+    border: #1f1d1d;
+    background-color: #1f1d1d;
+    color: white;
+    border-radius: 0.5em;
+    width: 500px;
+    height: 500px;
+    text-decoration: none;
+}
