@@ -16,9 +16,9 @@ class Users_registration extends CI_Model{
     $this->db->insert('users', $data);
   }
 
-  public function login($data)
+  public function login($loginData)
   {
-    $condition = "username =" . "'" . $data['username'] . "' AND " . "password =" . "'" . $data['password'] . "'";
+    $condition = "username =" . "'" . $loginData['username'] . "' AND " . "password =" . "'" . $loginData['password'] . "'";
     $this->db->select('*');
     $this->db->from('users');
     $this->db->where($condition);
@@ -35,9 +35,10 @@ class Users_registration extends CI_Model{
     }
   }
 
-  public function getUser($username)
+  public function getUser($username, $password)
   {
-    $condition = "user_name =" . "'" . $username . "'";    $this->db->select('*');
+    $condition = "username =" . "'" . $username . "' AND " . "password =" . "'" . $password . "'";
+    $this->db->select('*');
     $this->db->from('users');
     $this->db->where($condition);
     $query = $this->db->get();

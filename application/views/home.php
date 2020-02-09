@@ -1,29 +1,22 @@
-<!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
-  <title>Pomegranate Games - A Games Review Website</title>
-
+  <title>Pomegranate Games</title>
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?php echo base_url(); ?>assets/bootstrap_template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <link href="css/gamesreview.css" rel="stylesheet">
-
+    <!-- Custom styles for this template -->
+    <link href="<?php echo base_url(); ?>assets/bootstrap_template/css/gamesreview.css" rel="stylesheet">
 </head>
-
 <body>
-
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <a class="navbar-brand" href="#">Pomegranate Games - A Games Review Website</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -38,10 +31,10 @@
             <a class="nav-link" href="#">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+            <a class="nav-link" href="#">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="<?php echo base_url();?>index.php/logOut">Logout</a>
           </li>
         </ul>
       </div>
@@ -50,12 +43,9 @@
 
   <!-- Page Content -->
   <div class="container">
-
     <div class="row">
-
       <div class="col-lg-3">
-
-        <h1 class="my-4">Shop Name</h1>
+        <h1 class="my-4"></h1>
         <div class="list-group">
           <a href="#" class="list-group-item">Category 1</a>
           <a href="#" class="list-group-item">Category 2</a>
@@ -103,7 +93,7 @@
                 <h4 class="card-title">
                   <a href="#">Item One</a>
                 </h4>
-                <h5>$24.99</h5>
+                <h5>By Anonymous</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
               <div class="card-footer">
@@ -119,7 +109,7 @@
                 <h4 class="card-title">
                   <a href="#">Item Two</a>
                 </h4>
-                <h5>$24.99</h5>
+                <h5>By Anonymous</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
               </div>
               <div class="card-footer">
@@ -133,7 +123,7 @@
               <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">Item Three</a>
+                  <a href="#">By Anonymous</a>
                 </h4>
                 <h5>$24.99</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
@@ -151,7 +141,7 @@
                 <h4 class="card-title">
                   <a href="#">Item Four</a>
                 </h4>
-                <h5>$24.99</h5>
+                <h5>By Anonymous</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
               <div class="card-footer">
@@ -167,7 +157,7 @@
                 <h4 class="card-title">
                   <a href="#">Item Five</a>
                 </h4>
-                <h5>$24.99</h5>
+                <h5>By Anonymous</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
               </div>
               <div class="card-footer">
@@ -183,7 +173,7 @@
                 <h4 class="card-title">
                   <a href="#">Item Six</a>
                 </h4>
-                <h5>$24.99</h5>
+                <h5>By Anonymous</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
               </div>
               <div class="card-footer">
@@ -213,9 +203,9 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+  <!-- <script src="bootstrap_template/vendor/jquery/jquery.min.js"></script> -->
+  <script src="<?php echo base_url(); ?>assets/bootstrap_template/vendor/jquery/jquery.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/bootstrap_template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

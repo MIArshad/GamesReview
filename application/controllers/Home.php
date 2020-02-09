@@ -1,7 +1,6 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-session_start();
 
 class Home extends CI_Controller{
 
@@ -12,6 +11,7 @@ class Home extends CI_Controller{
         $this->load->helper('url');
         $this->load->model('Users_registration');
         $this->load->library('session');
+        $this->load->library('form_validation');
     }
 
     public function index()
@@ -35,40 +35,57 @@ class Home extends CI_Controller{
       $this->form_validation->set_rules('username', 'username', 'trim|required');
       $this->form_validation->set_rules('password', 'password', 'trim|required');
 
-      if($this->form_validation->run()==FALSE)
+      if($this->form_validation->run() == FALSE)
       {
-        if(isset($this->session->userInfo['loggedIn']))
-        {
-          $this->load->view('homepage');
-        }
-        else {
-          $this->load->view('login');
-        }
+        $this->load->view('login');
       }
       else
       {
-        $data = array(
-          'username' => $this->input->post('username'),
-          'password' => $this->input->post('password')
-        );
+        session_start();
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $foundUser = $this->Users_registration->getUser($username, $password);
 
-        $loginResult = $this->Users_registration->login($data);
-
-        if($loginResult == true)
+        if($foundUser == FALSE)
         {
-          $username = $this->input->post('username');
-          $getUserResult = $this->Users_registration->getUser($username);
-          if($getUserResult == TRUE)
-          {
-            $sessionInfo = array(
-              'username' => $result[0]->username,
-              'email' => $result[0]->email,
-            );
-            $this->session->set_userdata('signedIn', $sessionInfo);
-          }
+          echo "Login details incorrect, please try that again";
         }
+        else
+        {
+          $username = $foundUser[0]->username;
+          $email = $foundUser[0]->email;
+          $sessionArray = array(
+            'username' => $username,
+            'email' => $email,
+          );
 
+          $this->session->set_userdata('loggedIn', $sessionArray);
 
+          if(isset($_SESSION['loggedIn']))
+          {
+            $this->load->view('home');
+          }
+          else
+          {
+            echo 'basically ye, it didn\'t work and you need to try again';
+          }
+
+        }
       }
     }
+
+    public function signout()
+    {
+      $logoutArray = array(
+        'username' => ''
+      );
+      $this->session->unset_userdata('signedIn', $logoutArray);
+      redirect(base_url() . 'index.php/signIn');
+    }
+
+    public function loadHomepage()
+    {
+      $this->load->view('home');
+    }
+
 }
