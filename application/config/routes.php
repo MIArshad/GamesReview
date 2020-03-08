@@ -56,6 +56,9 @@ $route['furtherinformation'] =  'Home/further_information';
 $route['signUp'] = 'Home/signUp';
 $route['signIn'] = 'Home/signIn';
 $route['logOut'] = 'Home/signout';
+$route['chat'] = 'Chat/loadChat';
+$route['reviewPage/:num'] = 'Review/loadReview';
+
 
 $route['home'] = 'Home/loadHomepage';
 $route['404_override'] = '';

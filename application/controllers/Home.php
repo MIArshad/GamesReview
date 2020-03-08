@@ -10,6 +10,7 @@ class Home extends CI_Controller{
         //Load in the model.
         $this->load->helper('url');
         $this->load->model('Users_registration');
+        $this->load->model('Review_Model');
         $this->load->library('session');
         $this->load->library('form_validation');
     }
@@ -41,7 +42,6 @@ class Home extends CI_Controller{
       }
       else
       {
-        session_start();
         $username = $this->input->post('username');
         $password = $this->input->post('password');
         $foundUser = $this->Users_registration->getUser($username, $password);
@@ -54,6 +54,7 @@ class Home extends CI_Controller{
         {
           $username = $foundUser[0]->username;
           $email = $foundUser[0]->email;
+          session_start();
           $sessionArray = array(
             'username' => $username,
             'email' => $email,
@@ -63,13 +64,12 @@ class Home extends CI_Controller{
 
           if(isset($_SESSION['loggedIn']))
           {
-            $this->load->view('home');
+            redirect(base_url() . 'index.php/home');
           }
           else
           {
             echo 'basically ye, it didn\'t work and you need to try again';
           }
-
         }
       }
     }
@@ -85,7 +85,8 @@ class Home extends CI_Controller{
 
     public function loadHomepage()
     {
-      $this->load->view('home');
+      $review = $this->Review_Model->returnAllReviews();
+      $this->load->view('home', ['review'=>$review]);
     }
 
 }

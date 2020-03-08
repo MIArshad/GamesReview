@@ -29,9 +29,26 @@
             <label>Enter Password</label>
             <input type="password" id="password" name="password" class="form-control" value="<?php echo set_value('password'); ?>"/>
             <span class="text-danger"><?php echo form_error('password'); ?></span>
+          </div><br>
+          <div class="form-group">
+            <label>First Line of address</label>
+            <input type="password" id="fLine" name="fLine" class="form-control" value="<?php echo set_value('fLine'); ?>"/>
+            <span class="text-danger"><?php echo form_error('fLine'); ?></span>
+          </div>
+          <div class="form-group">
+            <label>City</label>
+            <input type="password" id="city" name="city" class="form-control" value="<?php echo set_value('city'); ?>"/>
+            <span class="text-danger"><?php echo form_error('city'); ?></span>
+          </div>
+          <div class="form-group">
+            <label>Post/Zip code</label>
+            <input type="pCode" id="pCode" name="pCode" class="form-control" value="<?php echo set_value('pCode'); ?>"/>
+            <span class="text-danger"><?php echo form_error('pCode'); ?></span>
           </div>
           <div class="form-group">
             <input type="submit" name="register" value="register" class="btn btn-info" />
+
+            <a href="<?php echo base_url(); ?>index.php/signIn">Already have an account?</a>
       </div>
     </div>
   </div>
