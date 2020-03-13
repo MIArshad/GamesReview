@@ -6,9 +6,9 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Pomegranate Games</title>
-  <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
+  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
   <script defer src="http://localhost:8081/gamesReview/script.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
   <!-- Bootstrap core CSS -->
   <link href="<?php echo base_url(); ?>assets/bootstrap_template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -45,6 +45,37 @@
   </nav>
 
   <!-- Page Content -->
+
+  <style>
+
+    #chatForm
+    {
+      width: 80%;
+      max-width: 1200px;
+    }
+
+    #chatForm div{
+      background-color: #ccc;
+      padding: 5px;
+    }
+
+    #chatForm div:nth-child(2n)
+    {
+      background-color: #fff
+    }
+
+    #sendMessage
+    {
+      position: fixed;
+      padding-bottom: 30px;
+      bottom:0;
+      background-color: white;
+      max-width: 1200px;
+      width: 80%;
+      display: flex;
+    }
+
+  </style>
   <div id="chatForm">
 
     <form id="sendMessage">

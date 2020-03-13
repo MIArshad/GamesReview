@@ -26,7 +26,6 @@ class Review_Model extends CI_Model{
       $this->db->where('reviewid', $reviewid);
       $result=$this->db->get('reviews');
 
-      // echo $this->db->last_query(); exit;
       return $result->result();
     }
 
@@ -35,6 +34,25 @@ class Review_Model extends CI_Model{
       $num_rows = $this->db->count_all_results('reviews');
       // echo $this->db->last_query(); exit;
       return $num_rows;
+    }
+
+    public function getComments($reviewID)
+    {
+      $this->db->select('reviewID, commentData');
+      $this->db->where('reviewID', $reviewID);
+
+      $result=$this->db->get('comments');
+      // echo $this->db->last_query(); exit;
+
+      return $result->result();
+    }
+
+    public function getAllComments()
+    {
+      $this->db->select('reviewID, commentData');
+      $result = $this->db->get('comments');
+
+      return $result->result();
     }
 }
 ?>

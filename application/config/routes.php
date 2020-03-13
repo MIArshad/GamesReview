@@ -58,6 +58,7 @@ $route['signIn'] = 'Home/signIn';
 $route['logOut'] = 'Home/signout';
 $route['chat'] = 'Chat/loadChat';
 $route['reviewPage/:num'] = 'Review/loadReview';
+$route['getComments'] = 'Review/returnComments';
 
 
 $route['home'] = 'Home/loadHomepage';

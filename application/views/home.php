@@ -108,6 +108,9 @@
 
         <?php } ?>
 
+        <input type="text">
+        <button>Hello</button>
+
 
           <!-- <button class="open-button" onclick="openForm()">Chat</button>
 

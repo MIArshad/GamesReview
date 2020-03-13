@@ -13,6 +13,8 @@
 
   <!-- Bootstrap core CSS -->
   <link href="<?php echo base_url(); ?>assets/bootstrap_template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
   <!-- Custom styles for this template -->
   <link href="<?php echo base_url(); ?>application/css/gamesReview.css" rel="stylesheet">
@@ -77,32 +79,34 @@
           </div>
         </div>
         <!-- /.card -->
+        <form method='post'>
+          <input type="text" v-model="comment">
+          <button type="submit" class="btn btn-success" @click="">Leave a Review</button>
+        </form>
 
-        <div class="card card-outline-secondary my-4">
-          <div class="card-header">
-            Product Reviews
-          </div>
-          <div class="card-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            <a href="#" class="btn btn-success">Leave a Review</a>
+      <?php } ?>
+
+
+        <div id="app">
+          <div class="card card-outline-secondary my-4">
+            <div class="card-header">
+              Product Reviews
+            </div>
+            <div class="card-body">
+              <div v-for="comment in comments">
+              {{comment.commentData}}<br><br>
+            </div>
           </div>
         </div>
+
+
         <!-- /.card -->
+
+        </div>
+
 
       </div>
       <!-- /.col-lg-9 -->
-
-      <div id="app">
-        <comments></comments>
-      </div>
 
 
 
@@ -110,7 +114,6 @@
 
   </div>
   <!-- /.container -->
-<?php } ?>
 
   <!-- Footer -->
   <footer class="py-5 bg-dark">
@@ -123,10 +126,9 @@
   <!-- Bootstrap core JavaScript -->
   <script src="<?php echo base_url(); ?>assets/bootstrap_template/vendor/jquery/jquery.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/bootstrap_template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="<?php echo base_url(); ?>application/chatPopup.js"></script>
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="https://unpkg.com/vue-resource@1.0.3/dist/vue-resource.min.js"></script>
-  <script src="<?php echo base_url(); ?>application/app.js"></script>
+  <script src="<?php echo base_url(); ?>application/CustomVue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 
 </body>
