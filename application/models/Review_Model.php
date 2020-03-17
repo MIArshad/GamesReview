@@ -54,5 +54,15 @@ class Review_Model extends CI_Model{
 
       return $result->result();
     }
+
+    public function insertComment($reviewId, $commentData)
+    {
+      $data = array(
+        'reviewID' => $reviewId,
+        'commentData' => $commentData
+      );
+
+      $this->db->insert('comments', $data);
+    }
 }
 ?>

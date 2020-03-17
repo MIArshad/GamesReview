@@ -58,8 +58,9 @@ $route['signIn'] = 'Home/signIn';
 $route['logOut'] = 'Home/signout';
 $route['chat'] = 'Chat/loadChat';
 $route['reviewPage/:num'] = 'Review/loadReview';
-$route['getComments'] = 'Review/returnComments';
 
+$route['getComments'] = 'Review/returnComments';
+$route['postComment'] = 'Review/insertComment';
 
 $route['home'] = 'Home/loadHomepage';
 $route['404_override'] = '';

@@ -14,30 +14,51 @@ class Review extends CI_Controller{
         $this->load->library('form_validation');
     }
 
+
     public function loadReview()
     {
       $reviewid = $this->uri->segment(2,0);
+      $data = array(
+        'reviewid'=>$reviewid
+      );
+      $this->session->set_userdata($data);
+      print_r($this->session->userdata('reviewid'));
+
       $review = $this->Review_Model->getReview($reviewid);
       $comments = $this->Review_Model->getComments($reviewid);
-
-      $this->load->view('reviewPage', ['review'=>$review, 'comments'=>$comments]);
+      $this->load->view('reviewPage', ['review'=>$review]);
     }
 
     public function returnComments()
     {
-      // $reviewid = $this->uri->segment(2,0);
-      $comments = $this->Review_Model->getAllComments();
-
-      $commentsArray = array('ReviewID'=>'1', 'commentData'=>'leave me alone');
-
       header('Content-Type: application/json');
+      $reviewid = $this->session->userdata('reviewid');
 
-      echo json_encode($comments);
+      $comments = $this->Review_Model->getComments($reviewid);
+
+      $commentsArray = [];
+
+      // $userArray = array('reviewID' => '1', 'commentData' => 'my html sucks');
+
+
+      foreach($comments as $comments)
+      {
+        $commentsArray[] = array('reviewID'=>$comments->reviewID, 'commentData'=>$comments->commentData);
+      }
+      echo json_encode($commentsArray);
     }
 
     public function insertComment()
     {
-      //insert code to take comment and put in db
+      $reviewid = $this->session->userdata('reviewid');
+
+      $commentData = $this->input->post();
+
+      $comment = $commentData['comment'];
+      // var_dump($comment);
+      $this->Review_Model->insertComment($reviewid, $comment);
+
+      redirect(base_url() . 'index.php/reviewPage/' . $reviewid);
     }
 
 }

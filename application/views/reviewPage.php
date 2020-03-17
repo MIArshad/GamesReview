@@ -56,14 +56,6 @@
   <div class="container">
 
     <div class="row">
-
-      <div class="col-lg-3">
-        <div class="list-group">
-          <a href="#" class="list-group-item">This button doesn't do anything</a>
-          <a href="#" class="list-group-item">Neither does this</a>
-          <a href="#" class="list-group-item">Nope, this won't do anything for you</a>
-        </div>
-      </div>
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
@@ -74,14 +66,13 @@
             <h3 class="card-title"><?php echo $review->review_name?></h3>
             <h5>Written by <?php echo $review->author?></h5>
             <p class="card-text"><?php echo $review->review_data ?></p>
-            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
             4.0 stars
           </div>
         </div>
         <!-- /.card -->
-        <form method='post'>
-          <input type="text" v-model="comment">
-          <button type="submit" class="btn btn-success" @click="">Leave a Review</button>
+        <form method="post" @submit.prevent="postComment()" action="<?php echo base_url();?>index.php/postComment">
+          <input type="text" name="comment" v-model="commentData">
+          <input type="submit" name="submit" class="btn btn-success" value="Leave a review"></button>
         </form>
 
       <?php } ?>

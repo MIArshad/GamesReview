@@ -14,20 +14,23 @@ Vue.component('commentsList', {
 
 
 Vue.component('commentForm', {
-  template: '<form v-on:submit.prevent="postComment">'+
+  template: '<form v-on:submit.prevent="submitComment">'+
   '<p><label for="text">comment</label><textarea name="enteredcomment" id="enteredcomment" v-model="enteredcomment" placeholder="Enter your comment here..."></textarea></p>'+
-  '<p><label for="submit"</label><button name="submit" id-"submit" class="btn btn-primary">Submit</button></p>'+
+  '<p><label for="submit"</label><button name="submit" id-"submit" class="btn btn-primary">Submit Comment</button></p>'+
 '</form>',
-  data: function(){
+  data() {
      return {
-    text ''
+    enteredcomment: null
   };
 },
 methods: {
-  postComment: function()
+  submitComment()
   {
-    var comment ={'enteredcomment': this.enteredcomment};
+    let comment = {
+      enteredcomment: this.enteredcomment
+    }
+    this.enteredcomment = null
   }
 }
-  
+
 })

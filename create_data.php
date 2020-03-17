@@ -31,6 +31,16 @@ else {
 	die("Error creating database: " . mysqli_error($connection));
 }
 
+$sql ="SET FOREIGN_KEY_CHECKS=0";
+if (mysqli_query($connection, $sql))
+{
+		echo "Foreign key check set to 0<br>";
+}
+else
+{
+		die("Error creating database: " . mysqli_error($connection));
+}
+
 // connect to our database
 mysqli_select_db($connection, $dbname);
 
@@ -159,6 +169,72 @@ for ($i=0; $i<count($review_names); $i++) {
 		die("Error inserting row: " . mysqli_error($connection));
 	}
 }
+
+///////////////////////////////////////////
+////////////// comments TABLE ////////////////
+///////////////////////////////////////////
+
+
+// if there's an old version of our table, then drop it
+$sql = "DROP TABLE IF EXISTS comments";
+
+// no data returned, we just test for true(success)/false(failure)
+if (mysqli_query($connection, $sql)) {
+
+	echo "Dropped existing table: comments<br>";
+}
+
+else {
+
+	die("Error checking for existing table: " . mysqli_error($connection));
+}
+
+// make our table:
+// notice that the username field is a PRIMARY KEY and so must be unique in each record
+$sql = "CREATE TABLE comments(reviewID SMALLINT(4) NOT NULL, commentData TEXT(32), FOREIGN KEY (reviewID) REFERENCES reviews(reviewID) ON DELETE CASCADE)";
+
+// no data returned, we just test for true(success)/false(failure)
+if (mysqli_query($connection, $sql)) {
+
+	echo "Table created successfully: comments<br>";
+}
+
+else {
+
+	die("Error creating table: " . mysqli_error($connection));
+}
+
+
+///////////////////////////////////////////
+/////////// comments TABLE DATA //////////////
+///////////////////////////////////////////
+
+$reviewIDs[] = "1"; $commentDatas[] = "this review sucks dick";
+$reviewIDs[] = "1"; $commentDatas[] = "leave me alone";
+
+$reviewIDs[] = "2"; $commentDatas[] = "this shouldn\'t be showing in the rdr review FIX IT RN";
+
+
+// loop through the arrays above and add rows to the table
+for ($i=0; $i<count($reviewIDs); $i++) {
+
+	// create the SQL query to be executed
+    $sql = "INSERT INTO comments (reviewID, commentData)
+			VALUES ('$reviewIDs[$i]', '$commentDatas[$i]')";
+
+	// run the above query '$sql' on our DB
+    // no data returned, we just test for true(success)/false(failure)
+	if (mysqli_query($connection, $sql)) {
+
+		echo "row inserted<br>";
+	}
+
+	else {
+
+		die("Error inserting row: " . mysqli_error($connection));
+	}
+}
+
 
 
 
