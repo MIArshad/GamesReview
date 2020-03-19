@@ -55,6 +55,8 @@ $route['furtherinformation'] =  'Home/further_information';
 
 $route['signUp'] = 'Home/signUp';
 $route['register'] = 'Home/loadRegister';
+$route['update'] = 'Home/updateUser';
+
 
 
 $route['signIn'] = 'Home/signIn';

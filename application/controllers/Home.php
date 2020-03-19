@@ -51,6 +51,23 @@ class Home extends CI_Controller{
 		$this->load->view('login');
 	}
 
+	public function updateUser()
+	{
+		$username = $_SESSION['username'];
+
+		$data['firstname'] = $this->input->post('firstname');
+		$data['surname'] = $this->input->post('surname');
+		$data['email'] = $this->input->post('email');
+		$data['password'] = $this->input->post('password');
+		$data['firstLine'] = $this->input->post('firstLine');
+		$data['city'] = $this->input->post('city');
+		$data['postcode'] = $this->input->post('postcode');
+
+		$this->Users_registration->updateUser($data, $username);
+
+		redirect(base_url() . 'index.php/profile');
+	}
+
 	public function signIn()
 	{
 //		use form validation to ensure that the entered data is validated
@@ -80,14 +97,14 @@ class Home extends CI_Controller{
 				$username = $foundUser[0]->username;
 				$email = $foundUser[0]->email;
 				session_start();
-				$sessionArray = array(
-					'username' => $username,
-					'email' => $email,
-				);
-
+//				$sessionArray = array(
+//					'username' => $username,
+//					'email' => $email,
+//				)
 				$_SESSION['userlogged'] = true;
+				$_SESSION['username'] = $username;
 
-				$this->session->set_userdata('loggedIn', $sessionArray);
+//				$this->session->set_userdata('loggedIn', $sessionArray);
 
 				if(isset($_SESSION['loggedIn']))
 				{
@@ -113,6 +130,7 @@ class Home extends CI_Controller{
 
 	public function loadHomepage()
 	{
+//		var_dump($this->session->all_userdata);
 //		take all the reviews in the db, and pass them to the view 
 		$review = $this->Review_Model->returnAllReviews();
 		$this->load->view('home', ['review'=>$review]);

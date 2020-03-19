@@ -55,5 +55,12 @@ class Users_registration extends CI_Model{
 		}
 //		SELECT * FROM USERS WHERE USERNAME = USERNAME, PASSWORD = PASSWORD
 	}
+
+	public function updateUser($data, $username)
+	{
+		$this->db->where('username', $username);
+		$this->db->update('users', $data);
+				
+	}
 }
 ?>

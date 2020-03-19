@@ -63,6 +63,9 @@
 	}
 
 	#chatForm div{
+		<?php if($_SESSION['username'] == 'admin'){?>
+		font-weight: bold;
+		<?php } ?>
 		background-color: #ccc;
 		padding: 5px;
 	}

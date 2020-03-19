@@ -1,7 +1,7 @@
 <?php
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
- 
+
 class Chat extends CI_Controller{
 
     public function __construct()
@@ -15,7 +15,7 @@ class Chat extends CI_Controller{
     }
 
     public function loadChat()
-    {
+	{
       $this->load->view('chat');
     }
 

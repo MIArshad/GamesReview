@@ -28,6 +28,7 @@ class Review extends CI_Controller{
 //		use the review id to retrieve the review from the db and pass it to the view in the form of an array
 		$review = $this->Review_Model->getReview($reviewid);
 		// $comments = $this->Review_Model->getComments($reviewid);
+
 		$this->load->view('reviewPage', ['review'=>$review]);
 	}
 

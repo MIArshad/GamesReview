@@ -60,5 +60,17 @@ class Review_Model extends CI_Model{
       return $result->result();
 //      SELECT REVIEWID, COMMENTDATA FROM COMMENTS
     }
+
+	public function insertComment($reviewId, $commentData)
+	{
+		$data = array(
+			'reviewID' => $reviewId,
+			'commentData' => $commentData
+		);
+
+		$this->db->insert('comments', $data);
+
+		//insert into comment db where review id matches
+	}
 }
 ?>
