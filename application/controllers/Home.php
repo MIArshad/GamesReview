@@ -17,8 +17,15 @@ class Home extends CI_Controller{
 
 	public function index()
 	{
-		//check if user is logged in, redirect to homepage of site
-//        $this->load->view('register');
+		//check if the user has logged in, and if not redirect to the login page, if they are, send them to the home page
+		if(isset($_SESSION[userlogged]))
+		{
+			$this->load->view('home');
+		}
+		else
+		{
+			$this->load->view('login');
+		}
 	}
 
 	public function loadRegister()
@@ -29,6 +36,7 @@ class Home extends CI_Controller{
 
 	public function signUp()
 	{
+//		store the posted data in an array to pass to the insert function in the model.
 		$data['username'] = $this->input->post('username');
 		$data['firstname'] = $this->input->post('firstname');
 		$data['surname'] = $this->input->post('surname');
@@ -45,25 +53,30 @@ class Home extends CI_Controller{
 
 	public function signIn()
 	{
+//		use form validation to ensure that the entered data is validated
 		$this->form_validation->set_rules('username', 'username', 'trim|required');
 		$this->form_validation->set_rules('password', 'password', 'trim|required');
 
 		if($this->form_validation->run() == FALSE)
 		{
+//			if the form validation isn't successful
 			$this->load->view('login');
 		}
 		else
 		{
+//			if it is, store the data in variables, and pass them into the getUser function from the model which will check to see if the details match a user in the db
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
 			$foundUser = $this->Users_registration->getUser($username, $password);
 
 			if($foundUser == FALSE)
 			{
+//				if there isn't a match in the
 				echo "Login details incorrect, please try that again";
 			}
 			else
 			{
+//				if a match is found, store the variables, and pass them into an array, set the boolean userlogged as true to be used in other functions
 				$username = $foundUser[0]->username;
 				$email = $foundUser[0]->email;
 				session_start();
@@ -90,6 +103,7 @@ class Home extends CI_Controller{
 
 	public function signout()
 	{
+//		remove the data stored in the session as the user wants to log out
 		$logoutArray = array(
 			'username' => ''
 		);
@@ -99,6 +113,7 @@ class Home extends CI_Controller{
 
 	public function loadHomepage()
 	{
+//		take all the reviews in the db, and pass them to the view 
 		$review = $this->Review_Model->returnAllReviews();
 		$this->load->view('home', ['review'=>$review]);
 	}

@@ -2,10 +2,14 @@
 <head>
 	<title>Profile</title>
 	<!-- load in bootstrap -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link href="<?php echo base_url(); ?>assets/bootstrap_template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+	<script defer src="script.js"></script>
+	<link href="<?php echo base_url(); ?>application/css/gamesReview.css" rel="stylesheet">
+
 <body>
+<!-- Navbar with links to home, chat, profile and logout -->
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 	<div class="container">
 		<a class="navbar-brand" href="#">Pomegranate Games - A Games Review Website</a>
@@ -37,12 +41,12 @@
 </nav>
 <div class="container">
 	<br />
-	<h3 align="center">User log in</h3>
+	<h3 align="center">Personal Profile</h3>
 	<br />
 	<div class="panel panel-default">
-		<div class="panel-heading">Register</div>
+		<div class="panel-heading">Edit Profile Details</div>
 		<div class="panel-body">
-			<!-- start the form for registration -->
+			<!-- start the form for amending the profile -->
 			<form method="post" action="<?php echo base_url();?>index.php/signUp">
 				<div class="form-group">
 					<label>Update your Email address</label>

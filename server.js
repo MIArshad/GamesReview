@@ -1,17 +1,26 @@
 var app = require("http").createServer();
 
-var io = require("socket.io")(app);
+var io = require("socket.io")(3000);
 
-io.on('connection',function (socket){
-  console.log("A user has entered the server");
+const users = {}
 
-  socket.on("client message", function(data) {
-    console.log("Client message received: " + data);
 
-    io.emit("server message", data);
-  });
+io.on('connection',socket => {
+	// console.log("A user has entered the server");
+
+	socket.on("new-user", name =>{
+		users[socket.id] = name
+		socket.broadcast.emit('user-connected', name)
+	});
+	socket.on('messageSent', message => {
+		socket.broadcast.emit('chat-message',message)
+	})
+	socket.on('disconnect', () => {
+		socket.broadcast.emit('user-disconnected', users[socket.id])
+		delete users[socket.id]
+	})
 });
 
 app.listen(8000, function(){
-  console.log("server started.")
+	console.log("server started")
 });

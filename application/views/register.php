@@ -57,7 +57,7 @@
 				</div>
 				<div class="form-group">
 					<input type="submit" name="register" value="register" class="btn btn-info" />
-
+<!--				redirect to login page if the user already has an account and doesn't want to sign in-->
 					<a href="<?php echo base_url(); ?>index.php/signIn">Already have an account?</a>
 				</div>
 		</div>

@@ -14,6 +14,7 @@ class Users_registration extends CI_Model{
 		$data['email'] = 'ismaelarshad@gmail.com';
 
 		$this->db->insert('users', $data);
+//		insert a user into the db, no longer used, as the users are inputted via the create_data script
 	}
 
 	public function login($loginData)
@@ -33,6 +34,7 @@ class Users_registration extends CI_Model{
 		{
 			return false;
 		}
+//		check to see if the data passed from the login script matches a user in the db
 	}
 
 	public function getUser($username, $password)
@@ -51,6 +53,7 @@ class Users_registration extends CI_Model{
 		{
 			return false;
 		}
+//		SELECT * FROM USERS WHERE USERNAME = USERNAME, PASSWORD = PASSWORD
 	}
 }
 ?>

@@ -6,16 +6,15 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title>Pomegranate Games</title>
-	<!-- Bootstrap core CSS -->
+	<!-- link in bootstrap/css, socket.io, and the javascript (not used at at the time of this submission as it is in the case that a popup style chat is made -->
 	<link href="<?php echo base_url(); ?>assets/bootstrap_template/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
 	<script defer src="script.js"></script>
 
-	<!-- Custom styles for this template -->
 	<link href="<?php echo base_url(); ?>application/css/gamesReview.css" rel="stylesheet">
 </head>
 <body>
-<!-- Navigation -->
+<!-- Navbar with links to home, chat, profile and logout -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 	<div class="container">
 		<a class="navbar-brand" href="#">Pomegranate Games - A Games Review Website</a>
@@ -46,19 +45,16 @@
 	</div>
 </nav>
 
-<!-- Page Content -->
 <div class="container">
 	<div class="row">
-		<!-- /.col-lg-3 -->
-
 		<div class="col-lg-9">
 			<div class="row">
-
+<!--			loop through all of the data that has been passed from the controller i.e. every review in the db-->
 				<?php foreach($review as $review){ ?>
-
 					<div class="col-lg-4 col-md-6 mb-4">
 						<div class="card h-100">
-							<a href="<?php echo base_url();?>index.php/reviewPage/<?php echo $review->reviewID;  ?>"><img class="card-img-top" src="<?php echo base_url() ?>/assets/<?php echo $review->imageSmall ?>" alt=""></a>
+<!--							provide a unique link for the review has been clicked on, and show the image of the review to the page-->
+							<a href="<?php echo base_url();?>index.php/reviewPage/<?php echo $review->reviewID;  ?>"><img class="card-img-top" src="<?php echo base_url() ?>assets/<?php echo $review->imageSmall ?>" alt=""></a>
 						</div>
 					</div>
 
@@ -104,7 +100,6 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<!-- <script src="bootstrap_template/vendor/jquery/jquery.min.js"></script> -->
 <script src="<?php echo base_url(); ?>assets/bootstrap_template/vendor/jquery/jquery.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/bootstrap_template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?php echo base_url(); ?>application/chatPopup.js"></script>

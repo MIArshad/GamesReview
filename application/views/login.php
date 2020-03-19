@@ -25,7 +25,7 @@ else
 		<div class="panel panel-default">
 			<div class="panel-heading">Please log in</div>
 			<div class="panel-body">
-				<!-- start the form for registration -->
+				<!-- start the form for logging in -->
 				<form method="post" action="<?php echo base_url();?>index.php/signIn">
 					<div class="form-group">
 						<label>Enter your name</label>

@@ -9,6 +9,7 @@ class Review_Model extends CI_Model{
       $result=$this->db->get('reviews');
 
       return $result->result();
+//      SELECT * FROM REVIEWS WHERE REVIEWID = $REVIEW ID
     }
 
     public function returnAllReviews()
@@ -17,7 +18,7 @@ class Review_Model extends CI_Model{
       $result = $this->db->get('reviews');
 
       return $result->result();
-
+//		SELECT * FROM REVIEWS
     }
 
     public function getReviewInfo($reviewid)
@@ -27,13 +28,16 @@ class Review_Model extends CI_Model{
       $result=$this->db->get('reviews');
 
       return $result->result();
-    }
+		//      SELECT * FROM REVIEWS WHERE REVIEWID = $REVIEW ID
+
+	}
 
     public function getNumOfReviews()
     {
       $num_rows = $this->db->count_all_results('reviews');
       // echo $this->db->last_query(); exit;
       return $num_rows;
+//      COUNTS ALL THE NUMBER OF REVIEWS RETURNED
     }
 
     public function getComments($reviewID)
@@ -45,6 +49,7 @@ class Review_Model extends CI_Model{
       // echo $this->db->last_query(); exit;
 
       return $result->result();
+//      SELECT REVIEWID COMMENTDATA FROM COMMENTS WHERE REVIEWID = $REVIEWID
     }
 
     public function getAllComments()
@@ -53,6 +58,7 @@ class Review_Model extends CI_Model{
       $result = $this->db->get('comments');
 
       return $result->result();
+//      SELECT REVIEWID, COMMENTDATA FROM COMMENTS
     }
 }
 ?>
