@@ -15,7 +15,7 @@ class Chat extends CI_Controller{
     }
 
     public function loadChat()
-    {
+	{
       $this->load->view('chat');
     }
 

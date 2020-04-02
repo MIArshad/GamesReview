@@ -9,6 +9,7 @@ class Review_Model extends CI_Model{
       $result=$this->db->get('reviews');
 
       return $result->result();
+//      SELECT * FROM REVIEWS WHERE REVIEWID = $REVIEW ID
     }
 
     public function returnAllReviews()
@@ -17,7 +18,7 @@ class Review_Model extends CI_Model{
       $result = $this->db->get('reviews');
 
       return $result->result();
-
+//		SELECT * FROM REVIEWS
     }
 
     public function getReviewInfo($reviewid)
@@ -27,13 +28,16 @@ class Review_Model extends CI_Model{
       $result=$this->db->get('reviews');
 
       return $result->result();
-    }
+		//      SELECT * FROM REVIEWS WHERE REVIEWID = $REVIEW ID
+
+	}
 
     public function getNumOfReviews()
     {
       $num_rows = $this->db->count_all_results('reviews');
       // echo $this->db->last_query(); exit;
       return $num_rows;
+//      COUNTS ALL THE NUMBER OF REVIEWS RETURNED
     }
 
     public function getComments($reviewID)
@@ -45,6 +49,7 @@ class Review_Model extends CI_Model{
       // echo $this->db->last_query(); exit;
 
       return $result->result();
+//      SELECT REVIEWID COMMENTDATA FROM COMMENTS WHERE REVIEWID = $REVIEWID
     }
 
     public function getAllComments()
@@ -53,8 +58,10 @@ class Review_Model extends CI_Model{
       $result = $this->db->get('comments');
 
       return $result->result();
+//      SELECT REVIEWID, COMMENTDATA FROM COMMENTS
     }
 
+<<<<<<< HEAD
     public function insertComment($reviewId, $commentData)
     {
       $data = array(
@@ -64,5 +71,18 @@ class Review_Model extends CI_Model{
 
       $this->db->insert('comments', $data);
     }
+=======
+	public function insertComment($reviewId, $commentData)
+	{
+		$data = array(
+			'reviewID' => $reviewId,
+			'commentData' => $commentData
+		);
+
+		$this->db->insert('comments', $data);
+
+		//insert into comment db where review id matches
+	}
+>>>>>>> 5c7e735768ee9f373c94cb67fe4990240de1ed76
 }
 ?>

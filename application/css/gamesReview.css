@@ -75,6 +75,36 @@ body {
   opacity: 1;
 }
 
+<<<<<<< HEAD
 #footer{
 
 }
+=======
+/*#chatForm*/
+/*{*/
+/*	width: 80%;*/
+/*	max-width: 1200px;*/
+/*}*/
+
+/*#chatForm div{*/
+/*	background-color: #ccc;*/
+/*	padding: 5px;*/
+/*}*/
+
+/*#chatForm div:nth-child(2n)*/
+/*{*/
+/*	background-color: #fff*/
+/*}*/
+
+/*#sendMessage*/
+/*{*/
+/*	position: fixed;*/
+/*	padding-bottom: 30px;*/
+/*	bottom:0;*/
+/*	background-color: white;*/
+/*	max-width: 1200px;*/
+/*	width: 80%;*/
+/*	display: flex;*/
+/*}*/
+
+>>>>>>> 5c7e735768ee9f373c94cb67fe4990240de1ed76

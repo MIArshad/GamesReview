@@ -34,11 +34,19 @@ else {
 $sql ="SET FOREIGN_KEY_CHECKS=0";
 if (mysqli_query($connection, $sql))
 {
+<<<<<<< HEAD
 		echo "Foreign key check set to 0<br>";
 }
 else
 {
 		die("Error creating database: " . mysqli_error($connection));
+=======
+	echo "Foreign key check set to 0<br>";
+}
+else
+{
+	die("Error creating database: " . mysqli_error($connection));
+>>>>>>> 5c7e735768ee9f373c94cb67fe4990240de1ed76
 }
 
 // connect to our database
@@ -91,11 +99,15 @@ $usernames[] = 'admin'; $passwords[] = 'admin'; $emails[] = 'admin@gmail.com'; $
 for ($i=0; $i<count($usernames); $i++) {
 
 	// create the SQL query to be executed
+<<<<<<< HEAD
     $sql = "INSERT INTO users (username, password, email, firstname, surname, firstLine, city, postcode)
+=======
+	$sql = "INSERT INTO users (username, password, email, firstname, surname, firstLine, city, postcode)
+>>>>>>> 5c7e735768ee9f373c94cb67fe4990240de1ed76
 			VALUES ('$usernames[$i]', '$passwords[$i]', '$emails[$i]', '$firstnames[$i]', '$lastnames[$i]', '$firstLines[$i]', '$cities[$i]', '$postcodes[$i]')";
 
 	// run the above query '$sql' on our DB
-    // no data returned, we just test for true(success)/false(failure)
+	// no data returned, we just test for true(success)/false(failure)
 	if (mysqli_query($connection, $sql)) {
 
 		echo "row inserted<br>";
@@ -173,11 +185,15 @@ $authors[] = 'https://uk.ign.com/articles/2017/10/26/assassins-creed-origins-rev
 for ($i=0; $i<count($review_names); $i++) {
 
 	// create the SQL query to be executed
+<<<<<<< HEAD
     $sql = "INSERT INTO reviews (review_name, review_data, author, imageSmall, imageLarge)
+=======
+	$sql = "INSERT INTO reviews (review_name, review_data, author, imageSmall, imageLarge)
+>>>>>>> 5c7e735768ee9f373c94cb67fe4990240de1ed76
 			VALUES ('$review_names[$i]', '$review_datas[$i]', '$authors[$i]', '$smallImages[$i]', '$largeImages[$i]')";
 
 	// run the above query '$sql' on our DB
-    // no data returned, we just test for true(success)/false(failure)
+	// no data returned, we just test for true(success)/false(failure)
 	if (mysqli_query($connection, $sql)) {
 
 		echo "row inserted<br>";
@@ -238,11 +254,19 @@ $reviewIDs[] = "2"; $commentDatas[] = "this shouldn\'t be showing in the rdr rev
 for ($i=0; $i<count($reviewIDs); $i++) {
 
 	// create the SQL query to be executed
+<<<<<<< HEAD
     $sql = "INSERT INTO comments (reviewID, commentData)
 			VALUES ('$reviewIDs[$i]', '$commentDatas[$i]')";
 
 	// run the above query '$sql' on our DB
     // no data returned, we just test for true(success)/false(failure)
+=======
+	$sql = "INSERT INTO comments (reviewID, commentData)
+			VALUES ('$reviewIDs[$i]', '$commentDatas[$i]')";
+
+	// run the above query '$sql' on our DB
+	// no data returned, we just test for true(success)/false(failure)
+>>>>>>> 5c7e735768ee9f373c94cb67fe4990240de1ed76
 	if (mysqli_query($connection, $sql)) {
 
 		echo "row inserted<br>";
