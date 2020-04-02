@@ -8,6 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
+  <?php foreach($review as $review){?>
 
   <title><?php echo $review->review_name; ?></title>
 
@@ -51,7 +52,6 @@
     </div>
   </nav>
 
-  <?php foreach($review as $review){?>
   <!-- Page Content -->
   <div class="container">
 
@@ -61,12 +61,11 @@
       <div class="col-lg-9">
 
         <div class="card mt-4">
-          <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+          <img class="card-img-top img-fluid" src="<?php echo base_url() ?>assets/<?php echo $review->imageLarge ?>" alt="">
           <div class="card-body">
             <h3 class="card-title"><?php echo $review->review_name?></h3>
             <h5>Written by <?php echo $review->author?></h5>
             <p class="card-text"><?php echo $review->review_data ?></p>
-            4.0 stars
           </div>
         </div>
         <!-- /.card -->

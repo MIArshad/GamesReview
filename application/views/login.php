@@ -39,8 +39,9 @@ else
           </div>
           <div class="form-group">
             <input type="submit" name="register" value="login" class="btn btn-info" />
-      </div>
-    </div>
-  </div>
+		  </div>
+			<a href="<?php echo base_url(); ?>index.php/register">Dont have an account yet? Click here to register</a>
+	  </div>
+	</div>
 </html>
 <?php } ?>

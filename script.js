@@ -9,22 +9,22 @@ appendMessage('You joined')
 socket.emit('new-user', name)
 
 socket.on("chat-message", data => {
-  appendMessage(data)
+  appendMessage(name + ': ' +data)
 });
 
 socket.on('user-connected', name => {
-  appendMessage(name + 'connected')
+  appendMessage(name + ' connected')
 })
 
-socket.on('user-disconnected', name=>{
-  appendMessage('${name} disconnected')
+socket.on('user-disconnected', name => {
+  appendMessage(name + ' disconnected')
 })
 
 messageForm.addEventListener('submit', e => {
   e.preventDefault()
   const message = messageInput.value
-  // appendMessage('You: ${message}')
-  socket.emit('send-chat-message', message)
+  appendMessage('You: ' + message)
+  socket.emit('messageSent', message)
   messageInput.value = ''
 
 })

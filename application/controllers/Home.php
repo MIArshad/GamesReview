@@ -17,14 +17,26 @@ class Home extends CI_Controller{
 
     public function index()
     {
-        $this->load->view('register');
+    	//check if user is logged in, redirect to homepage of site
+//        $this->load->view('register');
     }
+
+    public function loadRegister()
+	{
+		$this->load->view('register');
+	}
+
 
     public function signUp()
     {
       $data['username'] = $this->input->post('username');
+      $data['firstname'] = $this->input->post('firstname');
+      $data['surname'] = $this->input->post('surname');
       $data['email'] = $this->input->post('email');
       $data['password'] = $this->input->post('password');
+      $data['firstLine'] = $this->input->post('firstLine');
+      $data['city'] = $this->input->post('city');
+      $data['postcode'] = $this->input->post('postcode');
 
       $this->Users_registration->insert($data);
 
@@ -60,6 +72,8 @@ class Home extends CI_Controller{
             'email' => $email,
           );
 
+          $_SESSION['userlogged'] = true;
+
           $this->session->set_userdata('loggedIn', $sessionArray);
 
           if(isset($_SESSION['loggedIn']))
@@ -88,5 +102,10 @@ class Home extends CI_Controller{
       $review = $this->Review_Model->returnAllReviews();
       $this->load->view('home', ['review'=>$review]);
     }
+
+    public function loadProfile()
+	{
+		$this->load->view('Profile');
+	}
 
 }

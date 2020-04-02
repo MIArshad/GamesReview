@@ -22,10 +22,10 @@ class Review extends CI_Controller{
         'reviewid'=>$reviewid
       );
       $this->session->set_userdata($data);
-      print_r($this->session->userdata('reviewid'));
+      // print_r($this->session->userdata('reviewid'));
 
       $review = $this->Review_Model->getReview($reviewid);
-      $comments = $this->Review_Model->getComments($reviewid);
+      // $comments = $this->Review_Model->getComments($reviewid);
       $this->load->view('reviewPage', ['review'=>$review]);
     }
 

@@ -26,7 +26,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link" href="<?php echo base_url();?>index.php/home">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -34,7 +34,7 @@
             <a class="nav-link" href="#">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="<?php echo base_url() ?>index.php/chat">Chat</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo base_url();?>index.php/logOut">Logout</a>
@@ -46,36 +46,6 @@
 
   <!-- Page Content -->
 
-  <style>
-
-    #chatForm
-    {
-      width: 80%;
-      max-width: 1200px;
-    }
-
-    #chatForm div{
-      background-color: #ccc;
-      padding: 5px;
-    }
-
-    #chatForm div:nth-child(2n)
-    {
-      background-color: #fff
-    }
-
-    #sendMessage
-    {
-      position: fixed;
-      padding-bottom: 30px;
-      bottom:0;
-      background-color: white;
-      max-width: 1200px;
-      width: 80%;
-      display: flex;
-    }
-
-  </style>
   <div id="chatForm">
 
     <form id="sendMessage">
@@ -88,10 +58,40 @@
   <div id="chatspace">
 
   </div>
+  <style>
+
+	  #chatForm
+	  {
+		  width: 80%;
+		  max-width: 1200px;
+	  }
+	  #chatForm div{
+		  font-weight: bold;
+		  background-color: #ccc;
+		  padding: 5px;
+	  }
+
+	  #chatForm div:nth-child(2n)
+	  {
+		  background-color: #fff;
+	  }
+
+	  #sendMessage
+	  {
+		  position: fixed;
+		  padding-bottom: 30px;
+		  bottom:0;
+		  background-color: white;
+		  max-width: 1200px;
+		  width: 80%;
+		  display: flex;
+	  }
+
+  </style>
   <!-- /.container -->
 
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
+  <footer class="py-5 bg-dark" id="footer">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
     </div>

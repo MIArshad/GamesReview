@@ -12,7 +12,7 @@ io.on('connection',socket => {
     users[socket.id] = name
     socket.broadcast.emit('user-connected', name)
     });
-  socket.on('send-chat-message', message => {
+  socket.on('messageSent', message => {
     socket.broadcast.emit('chat-message',message)
   })
   socket.on('disconnect', () => {
